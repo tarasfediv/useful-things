@@ -44,3 +44,38 @@ class AdminStatistic < UserStatistic
     posts.map { |post| "title: #{post.title} author: #{post.author}" }.join("\n")
   end
 end
+# ------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
+# Підкласи мають бути взаємозамінними з базовими класами.
+# Поганий приклад:
+
+class Animal
+  def fly
+    raise "Not implemented"
+  end
+end
+
+class Bird < Animal
+  def fly
+    "Flying"
+  end
+end
+
+class Dog < Animal
+end
+# ------------------------------------------------------------------------------
+# Хороший приклад:
+class Animal
+end
+
+class FlyingAnimal < Animal
+  def fly
+    "Flying"
+  end
+end
+
+class Bird < FlyingAnimal
+end
+
+class Dog < Animal
+end
